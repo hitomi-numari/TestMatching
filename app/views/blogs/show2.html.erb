@@ -1,4 +1,5 @@
 <h2>応募者一覧</h2>
 <% @blog.apply_to_blogs.each do |apply| %>
   <%= apply.user.name %>
+  <%= render 'users/follow_form', user: apply.user %>
 <% end %>
