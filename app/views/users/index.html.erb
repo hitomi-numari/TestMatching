@@ -1,6 +1,4 @@
-<h2>ユーザー</h2>
-  <% @users.each do |user| %>
-    <%= user.name %>
-    <%= user.email %>
-    <%= render 'follow_form', user: user %>
-  <% end %>
+<h2>マイページ</h2>
+<li><%= link_to 'ユーザー一覧', show2_user_path(current_user.id) if user_signed_in? %></li>
+
+<li><%= link_to "投稿履歴", user_path(current_user.id) %></li>

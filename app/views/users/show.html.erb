@@ -1,0 +1,14 @@
+<h2>投稿履歴</h2>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+  <% @user.blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.title %></td>
+    <td><%= blog.content %></td>
+    <td><%= link_to "応募者一覧", show2_blog_path(blog.id) if user_signed_in? %>
+  </tr>
+  <% end %>
+</table>

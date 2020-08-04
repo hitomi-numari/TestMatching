@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :show2, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create]
 
   # GET /blogs
@@ -12,6 +12,9 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @apply = current_user.apply_to_blogs.find_by(blog_id: @blog.id)
+  end
+
+  def show2
   end
 
   # GET /blogs/new
