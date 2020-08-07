@@ -14,9 +14,6 @@ class BlogsController < ApplicationController
     @apply = current_user.apply_to_blogs.find_by(blog_id: @blog.id)
   end
 
-  def show2
-  end
-
   # GET /blogs/new
   def new
     @blog = Blog.new
@@ -31,7 +28,8 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
-    respond_to do |format|
+    if params[:back]
+      render :new
       if @blog.save
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
